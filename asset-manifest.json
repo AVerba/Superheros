@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Superheros/static/css/main.2c7d8d49.css",
+    "main.js": "/Superheros/static/js/main.d2b65044.js",
+    "static/media/background.jpg": "/Superheros/static/media/background.a10992c19ca81a9d114d.jpg",
+    "index.html": "/Superheros/index.html",
+    "main.2c7d8d49.css.map": "/Superheros/static/css/main.2c7d8d49.css.map",
+    "main.d2b65044.js.map": "/Superheros/static/js/main.d2b65044.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2c7d8d49.css",
+    "static/js/main.d2b65044.js"
+  ]
+}
