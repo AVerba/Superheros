@@ -1,0 +1,16 @@
+.header {
+  background-image: linear-gradient(
+    to bottom,
+    #828994,
+    #7e8e94,
+    #7e9190,
+    #85938b,
+    #909487
+  );
+  padding: 15px 0;
+}
+.addBtn {
+  font-size: 24px;
+  font-style: normal;
+  font-variant: normal;
+}

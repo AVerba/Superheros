@@ -1,0 +1,1 @@
+export { HeroesList } from './HeroesList';
