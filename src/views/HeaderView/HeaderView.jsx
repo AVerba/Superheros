@@ -1,4 +1,4 @@
-import styles from './HomeView.module.css';
+import styles from './HeaderView.module.css';
 import { Container } from '../../components/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -8,7 +8,7 @@ import heroesAPI from '../../services/servicesApi';
 import { useState } from 'react';
 import { AddForm } from '../../components/Forms/AddForm';
 
-export const HomeView = () => {
+export const HeaderView = () => {
   const [modalShow, setModalShow] = useState(false);
 
   heroesAPI.fetchHeroes().then(items => {

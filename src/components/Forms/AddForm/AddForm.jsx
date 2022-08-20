@@ -11,7 +11,7 @@ import heroesAPI from '../../../services/servicesApi';
 export const AddForm = props => {
   const initState = {
     name: '',
-    nicklname: '',
+    nickname: '',
     description: '',
     superpowers: '',
     catchPhrase: '',
@@ -24,7 +24,7 @@ export const AddForm = props => {
       .required('Name is required')
       .min(3, 'Name must be at least 3 characters')
       .max(20, 'Name must not exceed 10 characters'),
-    nicklname: Yup.string(),
+    nickname: Yup.string(),
     description: Yup.string(),
     superpowers: Yup.string(),
     catchPhrase: Yup.string(),
@@ -47,9 +47,9 @@ export const AddForm = props => {
 
   const onSubmit = (data, e) => {
     const { onHide } = props;
-    const { name, nicklname, description, catchPhrase, superpowers } = data;
+    const { name, nickname, description, catchPhrase, superpowers } = data;
     dataValue.append('name', name);
-    dataValue.append('nicklname', nicklname);
+    dataValue.append('nickname', nickname);
     dataValue.append('description', description);
     dataValue.append('superpowers', superpowers);
     dataValue.append('catchPhrase', catchPhrase);
