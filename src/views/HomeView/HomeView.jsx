@@ -3,12 +3,17 @@ import { Container } from '../../components/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { HeroesList } from '../../components/HeroesList';
+import heroesAPI from '../../services/servicesApi';
 
 import { useState } from 'react';
 import { AddForm } from '../../components/Forms/AddForm';
 
 export const HomeView = () => {
   const [modalShow, setModalShow] = useState(false);
+
+  heroesAPI.fetchHeroes().then(items => {
+    console.log(items);
+  });
 
   return (
     <>
