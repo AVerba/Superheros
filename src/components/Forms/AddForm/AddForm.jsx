@@ -94,7 +94,7 @@ export const AddForm = props => {
           </Form.Group>
 
           <Form.Group className="description" controlId="description">
-            <Form.Label>Superpowers</Form.Label>
+            <Form.Label>Description</Form.Label>
             <Form.Control as="textarea" rows={3} {...register('description')} />
           </Form.Group>
 

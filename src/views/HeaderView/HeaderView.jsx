@@ -11,10 +11,6 @@ import { AddForm } from '../../components/Forms/AddForm';
 export const HeaderView = () => {
   const [modalShow, setModalShow] = useState(false);
 
-  heroesAPI.fetchHeroes().then(items => {
-    console.log(items);
-  });
-
   return (
     <>
       <header className={styles.header}>

@@ -1,0 +1,1 @@
+export { HeroItem } from './HeroItem';

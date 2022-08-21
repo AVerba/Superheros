@@ -7,17 +7,14 @@ axios.defaults.baseURL = BASE_URL;
 
 async function fetchHeroes() {
   try {
-    const { data } = await axios.get(`/api/heroes`);
-    return data;
+    const response = await axios.get(`/api/heroes`);
+    return response.data;
   } catch (error) {
     throw error;
   }
 }
 
 async function addHero(newHero) {
-  for (let pair of newHero.entries()) {
-    console.log(pair[0] + ', ' + pair[1]);
-  }
   try {
     const { data } = axios.post('/api/heroes', newHero);
     return data;
