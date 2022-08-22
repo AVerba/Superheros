@@ -1,12 +1,10 @@
 import styles from './HeaderView.module.css';
 import { Container } from '../../components/Container';
-import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { HeroesList } from '../../components/HeroesList';
-import heroesAPI from '../../services/servicesApi';
 
 import { useState } from 'react';
 import { AddForm } from '../../components/Forms/AddForm';
+import { HeroesFilter } from '../../components/HeroestFilter';
 
 export const HeaderView = () => {
   const [modalShow, setModalShow] = useState(false);
@@ -15,17 +13,19 @@ export const HeaderView = () => {
     <>
       <header className={styles.header}>
         <Container>
-          <Button
-            variant="primary"
-            className={styles.addBtn}
-            onClick={() => setModalShow(true)}
-          >
-            Add hero
-          </Button>
-          <AddForm show={modalShow} onHide={() => setModalShow(false)} />
+          <div className={styles.headerRow}>
+            <Button
+              variant="primary"
+              className={styles.addBtn}
+              onClick={() => setModalShow(true)}
+            >
+              Add hero
+            </Button>
+            <AddForm show={modalShow} onHide={() => setModalShow(false)} />
+            <HeroesFilter />
+          </div>
         </Container>
       </header>
-      <HeroesList />
     </>
   );
 };

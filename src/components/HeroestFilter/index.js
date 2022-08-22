@@ -1,0 +1,1 @@
+export { HeroesFilter } from './HeroesFilter';

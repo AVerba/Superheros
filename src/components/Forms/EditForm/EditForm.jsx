@@ -1,4 +1,4 @@
-import styles from './AddForm.module.css';
+import styles from './EditForm.module.css';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
@@ -10,11 +10,10 @@ import * as Yup from 'yup';
 import {
   useGetHeroesQuery,
   useCreateHeroMutation,
-  useDeleteHeroMutation,
 } from '../../../redux/heroes/heroesApi';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-export const AddForm = props => {
+export const EditForm = props => {
   const dataValue = new FormData();
   const initState = {
     name: '',
@@ -23,7 +22,7 @@ export const AddForm = props => {
     superpowers: '',
     catchPhrase: '',
   };
-  const [imageURL, setImageURL] = useState('');
+
   const [initialValues, setInitialValues] = useState(initState);
   const [isDisabled, setIsDisabled] = useState(true);
   const { data: heroes, refetch } = useGetHeroesQuery();
@@ -146,18 +145,6 @@ export const AddForm = props => {
           <Form.Group className="CatchPhrase" controlId="CatchPhrase">
             <Form.Label>Catch phrase</Form.Label>
             <Form.Control as="textarea" rows={3} {...register('catchPhrase')} />
-          </Form.Group>
-
-          <Form.Group controlId="formFile" className="formFile">
-            <Form.Label>Choose an image to upload</Form.Label>
-            <Form.Control
-              type="file"
-              name="imageURL"
-              multiple
-              onChange={e => {
-                setImageURL(e.target.files[0]);
-              }}
-            />
           </Form.Group>
           <Modal.Footer>
             <Button type="submit" disabled={isDisabled}>

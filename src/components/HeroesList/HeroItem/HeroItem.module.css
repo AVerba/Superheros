@@ -1,8 +1,9 @@
 .item {
-  border-radius: 2px;
-  box-shadow: 0px 4px 25px 9px rgba(202, 104, 83, 0.2);
+  border-radius: 8px;
+
   background-color: #fff;
   cursor: pointer;
+  box-shadow: 0px 0px 17px 5px #d5d5d5;
 }
 .icon {
   margin: 0 auto;

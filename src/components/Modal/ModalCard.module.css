@@ -1,0 +1,24 @@
+.img {
+  width: 100%;
+  height: auto;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.5662640056022409) 0%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(17, 16, 16, 0.3029586834733894) 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modalHeader {
+  display: flex;
+  align-items: center;
+}
+.modalTitle {
+  margin-right: 10px;
+}
+.edit {
+  margin-right: 10px;
+}
