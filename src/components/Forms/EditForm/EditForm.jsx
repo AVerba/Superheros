@@ -9,25 +9,26 @@ import * as Yup from 'yup';
 
 import {
   useGetHeroesQuery,
-  useCreateHeroMutation,
+  useUpdateHeroMutation,
 } from '../../../redux/heroes/heroesApi';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export const EditForm = props => {
   const dataValue = new FormData();
+  const { hero, onHide, id } = props;
   const initState = {
-    name: '',
-    nickname: '',
-    description: '',
-    superpowers: '',
-    catchPhrase: '',
+    name: hero.name,
+    nickname: hero.nickname,
+    description: hero.description,
+    superpowers: hero.superpowers,
+    catchPhrase: hero.catchPhrase,
   };
 
   const [initialValues, setInitialValues] = useState(initState);
   const [isDisabled, setIsDisabled] = useState(true);
   const { data: heroes, refetch } = useGetHeroesQuery();
-  const [createHero, { isLoading: isUpdating, isSuccess: successfullyAdded }] =
-    useCreateHeroMutation();
+  const [updateHero, { isLoading: isUpdating, isSuccess: successfullyAdded }] =
+    useUpdateHeroMutation();
 
   const validationSchema = Yup.object().shape({
     name: Yup.string()
@@ -75,9 +76,9 @@ export const EditForm = props => {
     dataValue.append('description', description);
     dataValue.append('superpowers', superpowers);
     dataValue.append('catchPhrase', catchPhrase);
-    dataValue.append('imageURL', imageURL);
 
-    createHero(dataValue);
+    updateHero({ id, data });
+    console.log(data);
     onHide();
   };
   const onError = error => {
@@ -148,7 +149,7 @@ export const EditForm = props => {
           </Form.Group>
           <Modal.Footer>
             <Button type="submit" disabled={isDisabled}>
-              {isUpdating ? <>Adding...</> : <>Add hero</>}
+              {isUpdating ? <>Editing...</> : <>Edit hero</>}
             </Button>
           </Modal.Footer>
         </Form>

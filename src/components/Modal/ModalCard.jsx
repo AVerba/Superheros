@@ -14,6 +14,7 @@ import {
   useDeleteHeroMutation,
 } from '../../redux/heroes/heroesApi';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { EditForm } from '../Forms/EditForm';
 
 const Status = {
   IDLE: 'idle',
@@ -30,6 +31,7 @@ export const ModalCard = props => {
   const [status, setStatus] = useState(Status.IDLE);
   const [error, setError] = useState(null);
   const [deleteId, setDeleteId] = useState('');
+  const [modalShow, setModalShow] = useState(false);
   const { id } = props;
 
   useEffect(() => {
@@ -85,7 +87,10 @@ export const ModalCard = props => {
               <div className={styles.controls}>
                 <Button
                   className={styles.edit}
-                  onClick={event => editItem(event)}
+                  onClick={() => {
+                    setModalShow(true);
+                    props.onHide();
+                  }}
                 >
                   <EditIcon />
                 </Button>
@@ -127,6 +132,12 @@ export const ModalCard = props => {
           </Modal.Footer>
         </Modal>
       ) : null}
+      <EditForm
+        show={modalShow}
+        hero={hero}
+        id={id}
+        onHide={() => setModalShow(false)}
+      />
     </>
   );
 };
