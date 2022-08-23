@@ -27,8 +27,10 @@ export const EditForm = props => {
   const [initialValues, setInitialValues] = useState(initState);
   const [isDisabled, setIsDisabled] = useState(true);
   const { data: heroes, refetch } = useGetHeroesQuery();
-  const [updateHero, { isLoading: isUpdating, isSuccess: successfullyAdded }] =
-    useUpdateHeroMutation();
+  const [
+    updateHero,
+    { isLoading: isUpdating, isSuccess: successfullyUpdated },
+  ] = useUpdateHeroMutation();
 
   const validationSchema = Yup.object().shape({
     name: Yup.string()
@@ -85,11 +87,11 @@ export const EditForm = props => {
     console.log('ERROR:::', error);
   };
   useEffect(() => {
-    if (successfullyAdded) {
-      Notify.success(`Contact added successfully`);
+    if (successfullyUpdated) {
+      Notify.success(`Hero updated successfully`);
     }
     refetch();
-  }, [successfullyAdded]);
+  }, [successfullyUpdated]);
 
   return (
     <Modal {...props} size="lg" aria-labelledby="add-hero-form" centered>

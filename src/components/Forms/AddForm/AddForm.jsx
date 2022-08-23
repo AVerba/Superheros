@@ -86,7 +86,7 @@ export const AddForm = props => {
   };
   useEffect(() => {
     if (successfullyAdded) {
-      Notify.success(`Contact added successfully`);
+      Notify.success(`Hero added successfully`);
     }
     refetch();
   }, [successfullyAdded]);

@@ -19,21 +19,27 @@ export const HeroesList = () => {
   };
   let renderedData = filter === '' ? heroes : filteredHeroes();
   const renderList = (
-    <ul className={styles.heroesList}>
-      {heroes &&
-        renderedData.map(item => (
-          <HeroItem
-            key={item._id}
-            id={item._id}
-            name={item.nickname}
-            poster={item.imageURL}
-          />
-        ))}
-    </ul>
+    <>
+      <Title
+        className={styles.title}
+        title={"Here you are! It's your superheroes list"}
+      />
+      <ul className={styles.heroesList}>
+        {heroes &&
+          renderedData.map(item => (
+            <HeroItem
+              key={item._id}
+              id={item._id}
+              name={item.nickname}
+              poster={item.imageURL}
+            />
+          ))}
+      </ul>
+    </>
   );
 
   return isLoading ? (
-    <div>loading...</div>
+    <Title className={styles.title} title={'Loading...'} />
   ) : heroes.length !== 0 ? (
     renderList
   ) : (
