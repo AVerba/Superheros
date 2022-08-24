@@ -10,7 +10,6 @@ import * as Yup from 'yup';
 import {
   useGetHeroesQuery,
   useCreateHeroMutation,
-  useDeleteHeroMutation,
 } from '../../../redux/heroes/heroesApi';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 

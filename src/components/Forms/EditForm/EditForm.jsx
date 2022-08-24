@@ -1,4 +1,3 @@
-import styles from './EditForm.module.css';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
@@ -15,7 +14,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export const EditForm = props => {
   const dataValue = new FormData();
-  const { hero, onHide, id } = props;
+  const { hero, id } = props;
   const initState = {
     name: hero.name,
     nickname: hero.nickname,
@@ -46,9 +45,7 @@ export const EditForm = props => {
 
   const {
     register,
-    resetField,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm({
     mode: 'onTouched',
@@ -91,7 +88,7 @@ export const EditForm = props => {
       Notify.success(`Hero updated successfully`);
     }
     refetch();
-  }, [successfullyUpdated]);
+  }, [successfullyUpdated, refetch]);
 
   return (
     <Modal {...props} size="lg" aria-labelledby="add-hero-form" centered>

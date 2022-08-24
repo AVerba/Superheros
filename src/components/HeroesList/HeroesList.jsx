@@ -1,10 +1,7 @@
 import styles from './HeroesList.module.css';
 import { HeroItem } from './HeroItem';
 import { useSelector } from 'react-redux';
-import {
-  useGetHeroesQuery,
-  useDeleteHeroMutation,
-} from '../../redux/heroes/heroesApi';
+import { useGetHeroesQuery } from '../../redux/heroes/heroesApi';
 import { getFilter } from '../../redux/heroes/heroesSlice';
 import { Title } from '../ui/Title';
 

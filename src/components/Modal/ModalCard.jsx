@@ -3,16 +3,13 @@ import Modal from 'react-bootstrap/Modal';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
-import { useContext, useEffect, useState } from 'react';
-import { Title } from '../ui/Title';
+import { useEffect, useState } from 'react';
+
 import ImageLoader from '../ui/Loader/Loader';
 import heroesAPI from '../../services/servicesApi';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import {
-  useGetHeroByIdQuery,
-  useDeleteHeroMutation,
-} from '../../redux/heroes/heroesApi';
+import { useDeleteHeroMutation } from '../../redux/heroes/heroesApi';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { EditForm } from '../Forms/EditForm';
 
@@ -23,10 +20,8 @@ const Status = {
   REJECTED: 'rejected',
 };
 export const ModalCard = props => {
-  const [
-    deleteHero,
-    { isLoading: isDeleting, isSuccess: successfullyDeleted },
-  ] = useDeleteHeroMutation();
+  const [deleteHero, { isSuccess: successfullyDeleted }] =
+    useDeleteHeroMutation();
   const [hero, setHero] = useState([]);
   const [status, setStatus] = useState(Status.IDLE);
   const [error, setError] = useState(null);
@@ -53,8 +48,6 @@ export const ModalCard = props => {
         });
     }
   };
-
-  const editItem = hero => {};
 
   const deleteItem = event => {
     deleteHero(deleteId);
@@ -104,6 +97,7 @@ export const ModalCard = props => {
             <Card>
               <div className={styles.img}>
                 <img
+                  alt={hero.name}
                   src={`https://super-heroes-api-ua.herokuapp.com/${hero.imageURL}`}
                 />
               </div>

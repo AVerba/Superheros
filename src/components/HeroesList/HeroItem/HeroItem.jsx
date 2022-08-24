@@ -1,12 +1,9 @@
 import styles from './HeroItem.module.css';
 import propTypes from 'prop-types';
-import { apiSettings } from '../../../services/settings';
 import commonImage from '../../ui/images/commonImage.png';
 import { ReactComponent as HeroItemLogo } from '../../ui/images/hero.svg';
 import { useState } from 'react';
 import { ModalCard } from '../../Modal';
-
-const { BASE_URL } = apiSettings;
 
 export const HeroItem = ({ id, poster: imageURL, name }) => {
   const [modalShow, setModalShow] = useState(false);
